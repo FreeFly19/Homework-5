@@ -3,26 +3,26 @@
  */
 public class Ex3 {
     public static void main(String[] args) {
-        int[] ARR = new int[10];
-        RANDOM(ARR);
-        System.out.println(sortArr(ARR));
+        int[] arr = new int[10];
+        fillArrayRandomGeneratedValues(arr);
+        System.out.println(getIndexOfMaxElement(arr));
     }
 
-    public static void RANDOM(int[] mas) {
+    public static void fillArrayRandomGeneratedValues(int[] mas) {
         for (int i = 0; i < mas.length; i++) {
             mas[i] = (int) (Math.random() * 20);
         }
     }
 
-   public static int sortArr(int[] mas) {
-       int max = 1;
-       int index;
-       for (int i = 0; i < mas.length; i++) {
-           if (max < mas[i]) {
-               max = mas[i];
-               index = i;
-           }
-       }
-       return index; //я не розуміб чого він підкреслює як помилку
-   }
+    public static int getIndexOfMaxElement(int[] mas) {
+        int max = -2147483648; // Minimal value of integer type
+        int index = 0;
+        for (int i = 0; i < mas.length; i++) {
+            if (max < mas[i]) {
+                max = mas[i];
+                index = i;
+            }
+        }
+        return index;
+    }
 }
